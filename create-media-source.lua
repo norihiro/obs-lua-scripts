@@ -2,17 +2,6 @@ obs           = obslua
 source_name   = ""
 hotkey_id     = obs.OBS_INVALID_HOTKEY_ID
 
-function set_text(text)
-	local source = obs.obs_get_source_by_name(source_name)
-	if source ~= nil then
-		local settings = obs.obs_data_create()
-		obs.obs_data_set_string(settings, "text", text)
-		obs.obs_source_update(source, settings)
-		obs.obs_data_release(settings)
-		obs.obs_source_release(source)
-	end
-end
-
 function create_mediasource_centre()
 	local scene_source = obs.obs_frontend_get_current_scene()
 	if scene_source == nil then
